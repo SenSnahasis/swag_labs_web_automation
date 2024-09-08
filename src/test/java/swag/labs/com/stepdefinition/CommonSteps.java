@@ -65,7 +65,7 @@ public class CommonSteps extends BaseClass {
     public void clearAndEnterDataInTextField(String locatorSelect, String value) {
         By locator = LocatorSelector.select(locatorSelect);
         ExplicitWait.waitForVisibility(locator);
-        TextBox.clearText(locator);
+        KeyBoard.clearText(locator);
         try {
             TextBox.clearAndSendKeys(locator, value);
         }catch (ElementNotInteractableException e) {

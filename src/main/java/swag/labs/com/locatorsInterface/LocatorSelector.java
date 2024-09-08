@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 import java.lang.reflect.Field;
 
-public class LocatorSelector implements LoginLocator {
+public class LocatorSelector implements LoginLocator, HomePageLocator {
     private static Object LocatorSelector;
 
     public static By select(String value) {

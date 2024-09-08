@@ -5,10 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseClass {
-    public static WebDriver driver;
+    public static WebDriver webDriver;
     public void initialiseBrowser(){
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.saucedemo.com/");
-        new CommonHelper(driver);
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.saucedemo.com/");
+        webDriver.manage().window().maximize();
+        new CommonHelper(webDriver);
     }
 }
