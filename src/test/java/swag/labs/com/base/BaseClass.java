@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class BaseClass {
     public static WebDriver webDriver;
+
     public void initialiseBrowser(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-save-password-bubble");
@@ -18,14 +19,17 @@ public class BaseClass {
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
-// 👇 Disable the password leak detection popup
         prefs.put("profile.password_manager_leak_detection", false);
 
         options.setExperimentalOption("prefs", prefs);
-        WebDriver webDriver = new ChromeDriver(options);
+
+        // assign to class-level variable
+        webDriver = new ChromeDriver(options);
 
         webDriver.get("https://www.saucedemo.com/");
         webDriver.manage().window().maximize();
+
         new CommonHelper(webDriver);
     }
 }
+

@@ -8,7 +8,9 @@ import swag.labs.com.utility.CONSTANTS;
 public class Hooks extends CommonHelper {
     @AfterAll()
     public static void quitBrowser() {
-        CONSTANTS.BROWSER_ACTIVE = false;
-        Navigate.quit();
+        if(CommonHelper.webDriver != null) {
+            CONSTANTS.BROWSER_ACTIVE = false;
+            Navigate.quit();
+        }
     }
 }
