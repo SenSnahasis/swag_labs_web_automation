@@ -90,7 +90,7 @@ public class CommonSteps extends BaseClass {
     @Then("Locate and verify {string} button is present")
     public void verifyButtonPresent(String locatorSelect) {
         By locator = LocatorSelector.select(locatorSelect);
-        ExplicitWait.waitForClickable(locator);
+        ExplicitWait.waitForElementsToBeClickable(locator);
         boolean flag = ElementInfo.isElementPresent(locator);
         Assertion.validateTrue(flag);
     }
@@ -99,7 +99,7 @@ public class CommonSteps extends BaseClass {
         By locator = LocatorSelector.select(locatorSelect);
         boolean flag = true;
         try {
-            ExplicitWait.waitForClickable(locator);
+            ExplicitWait.waitForElementsToBeClickable(locator);
         } catch (Exception exception) {
             flag = ElementInfo.isElementPresent(locator);
         }
